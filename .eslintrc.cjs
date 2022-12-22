@@ -6,16 +6,16 @@ module.exports = {
     "extends": [
         "plugin:react/recommended",
         "xo",
-        "plugin:prettier/recommended",
         'eslint:recommended',
         "plugin:@typescript-eslint/recommended",
 
-        "prettier",
+        "plugin:prettier/recommended"
     ],
     "overrides": [
         {
             "extends": [
-                "xo-typescript"
+                "xo-typescript",
+                "plugin:prettier/recommended"  // don't forget this scope
             ],
             "files": [
                 "*.ts",
@@ -28,10 +28,10 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "prettier"
+        "react"
     ],
     "rules": {
-      "prettier/prettier": "error"
+      "react/react-in-jsx-scope": "off",
+      "@typescript-eslint/no-unused-vars": 'error'
     }
 }
