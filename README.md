@@ -55,3 +55,17 @@ resolve: {
   }
 }
 ```
+# Atomic Design Pattern
+- Atoms
+- Molecules
+- Organisms
+- Templates
+- Pages
+
+## Atoms
+- Basic building blocks of matter, such as a button, input or a form label. They’re not useful on their own
+- It cannot be divided into smaller pieces.
+- It doesn't have any actions
+- We should implement it as general as possible.
+
+...
