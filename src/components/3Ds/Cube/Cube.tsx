@@ -2,10 +2,11 @@
 
 import React, { useEffect, useRef } from 'react';
 import { extend } from '@react-three/fiber';
-import { Mesh, BoxGeometry, MeshStandardMaterial } from 'three';
+import { Mesh, BoxGeometry, MeshBasicMaterial } from 'three';
 import { type CubeProps } from './types';
+import useInitialPosition from '../hooks/useInitialPosition';
 
-extend({ Mesh, BoxGeometry, MeshStandardMaterial });
+extend({ Mesh, BoxGeometry, MeshBasicMaterial });
 
 const Cube = ({
   color = 'gray',
@@ -22,16 +23,12 @@ const Cube = ({
     }
   }, [initialRotate]);
 
-  useEffect(() => {
-    if (position) {
-      ref.current.position.set(...position);
-    }
-  }, [position]);
+  useInitialPosition(ref, position);
 
   return (
     <mesh ref={ref}>
       <boxGeometry args={size} />
-      <meshBasicMaterial color={color} />
+      <meshStandardMaterial color={color} />
     </mesh>
   );
 };

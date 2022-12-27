@@ -35,6 +35,7 @@ module.exports = {
       "@typescript-eslint/no-unused-vars": 'error',
       "react/no-unescaped-entities": "off",
       "react/no-unknown-property": "off",
-      "@typescript-eslint/no-unsafe-assignment": "off"
+      "@typescript-eslint/no-unsafe-assignment": "off",
+      "react/display-name": 'off'
     }
 }
