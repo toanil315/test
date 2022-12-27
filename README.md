@@ -42,16 +42,21 @@ Exactly what does `plugin:prettier/recommended` do? Well, this is what it expand
 In `tsconfig.json`:
 ```json
 "paths": {
-  "@/*": ["./src/*"] //@/components <=> ./src/components => @ <=> ./src
+  "@components/*": ["./components/*"],
+  "@assets/*": ["./assets/*"],
+  "@interfaces/*": ["./interfaces/*"],
+
 }
 ```
 
 In `vite.config.ts`:
 ```js
 resolve: {
-  //@components <=> ./src/components => @ <=> ./src/
+
   alias: {
-    '@': path.resolve(__dirname, './src')
+    "@components": path.resolve(__dirname, "./src/components"),
+    "@assets": path.resolve(__dirname, "./src/assets"),
+    "@interfaces": path.resolve(__dirname, "./src/interfaces"),
   }
 }
 ```
