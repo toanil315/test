@@ -8,7 +8,7 @@ import { type CubeProps } from './types';
 extend({ Mesh, BoxGeometry, MeshStandardMaterial });
 
 const Cube = ({
-  color,
+  color = 'gray',
   size = [1, 1, 1],
   position = [0, 0, 0],
   initialRotate = false,

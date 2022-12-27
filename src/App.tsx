@@ -1,63 +1,35 @@
 /** @format */
 
-import { useState } from 'react';
 import reactLogo from '@assets/react.svg';
 import './App.css';
-import Input from '@components/Input';
-import { Canvas } from '@react-three/fiber';
 import { Cube } from '@components/3Ds/Cube';
+import { CommonCanvas } from '@components/3Ds/CommonCanvas';
+import { ReactiveCube } from '@components/3Ds/Cube/variants/ReactiveCube';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className='App'>
       <div>
-        <a
-          href='https://vitejs.dev'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <img
-            src='/vite.svg'
-            className='logo'
-            alt='Vite logo'
-          />
-        </a>
-        <a
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noreferrer'
-        >
-          <img
-            src={reactLogo}
-            className='logo react'
-            alt='React logo'
-          />
-        </a>
+        <img
+          src='/vite.svg'
+          className='logo'
+          alt='Vite logo'
+        />
+
+        <img
+          src={reactLogo}
+          className='logo react'
+          alt='React logo'
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button
-          onClick={() => {
-            setCount((count) => count + 1);
-          }}
-        >
-          count is {count}
-        </button>
-        <p>
-          "Edit" <code>src/App.tsx</code> and save to test HMR
-        </p>
-        <div>
-          <Input />
-        </div>
-        <div>
-          <Canvas>
-            <Cube></Cube>
-          </Canvas>
-        </div>
-      </div>
-      <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
+
+      <CommonCanvas>
+        <Cube initialRotate={true} />
+        <ReactiveCube
+          color='lightgreen'
+          position={[2, 0, 0]}
+        />
+      </CommonCanvas>
     </div>
   );
 }
