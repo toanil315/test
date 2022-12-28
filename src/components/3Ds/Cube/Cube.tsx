@@ -1,5 +1,3 @@
-/** @format */
-
 import React, { useEffect, useRef } from 'react';
 import { extend } from '@react-three/fiber';
 import { Mesh, BoxGeometry, MeshBasicMaterial } from 'three';
@@ -8,6 +6,9 @@ import useInitialPosition from '../hooks/useInitialPosition';
 
 extend({ Mesh, BoxGeometry, MeshBasicMaterial });
 
+/**
+ * This is just a 3D `Cube` object
+ */
 const Cube = ({
   color = 'gray',
   size = [1, 1, 1],

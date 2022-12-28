@@ -6,7 +6,15 @@ import Cube from '../../Cube';
 import { useCallback } from 'react';
 import { type ThreeEvent } from '@react-three/fiber';
 
-const ReactiveCube = ({ color, position, hoveringColor = 'red', ...rest }: ReactiveCubeProps) => {
+/**
+ * Just a hoverable `Cube`
+ */
+const ReactiveCube = ({
+  color,
+  position,
+  hoveringColor = 'orange',
+  ...rest
+}: ReactiveCubeProps) => {
   const [hovering, setHover] = useState(false);
 
   const handlePointerEnter = useCallback(

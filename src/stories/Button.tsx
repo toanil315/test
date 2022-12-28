@@ -19,7 +19,7 @@ type ButtonProps = {
    */
   label: string;
   /**
-   * Optional click handler
+   * Optional click handler test
    */
   onClick?: () => void;
 };
