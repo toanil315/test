@@ -3,7 +3,16 @@
 # What?
 
 Just a template
+<br>
+<br>
 
+# Apply?
+- Pls **remove** all example components
+- Follow the `Rules` (at the end of this file)
+- Read carefully the `Cleaner importing` section
+
+<br>
+<br>
 
 # Solve Eslint and Prettier conflict
 First:
@@ -13,9 +22,6 @@ npm i -D prettier
 
 npm i -D eslint-config-prettier
 npm i -D eslint-plugin-prettier
-
-npm i -D tslint-config-prettier
-npm i -D tslint-plugin-prettier
 ```
 Then you need to add `plugin:prettier/recommended` as the **last** extension in your `.eslintrc.json`:
 
@@ -38,6 +44,11 @@ Exactly what does `plugin:prettier/recommended` do? Well, this is what it expand
   }
 }
 ```
+<br>
+<hr />
+<br>
+
+
 # Cleaner importing
 In `tsconfig.json`:
 ```json
@@ -60,17 +71,40 @@ resolve: {
   }
 }
 ```
+**Add more if necessary.**
+<br>
+<br>
+
 # Atomic Design Pattern
-- Atoms
-- Molecules
-- Organisms
-- Templates
-- Pages
+- `Atoms`
+- `Molecules` (Group of Atoms)
+- `Organisms` (Group of Molecules and Atoms)
+- `Templates` (The layout (container / responsive container) of Pages / Organisms) - no logic, just css
+- `Pages` (Combined of 4 above)
 
-## Atoms
-- Basic building blocks of matter, such as a button, input or a form label. They’re not useful on their own
-- It cannot be divided into smaller pieces.
-- It doesn't have any actions
-- We should implement it as general as possible.
+# Rules
+- Base component (`Atom`), Common Component (`Molecules`)
+- Place in `@Components`
+- ex:
 
-...
+  + Input feature -> `@components/Input`
+    + Its implementation? -> `@components/Input/Input.tsx`
+    + Its variant? -> `@components/Input/variants`
+    + Should always use `index.ts` to export (default component, types, variants)
+
+<br>
+<hr />
+
+
+- everything can be splitted and belong to specific features (`Organisms`), place in  `@modules`
+- ex:
+
+  + Message feature -> `@modules/message`
+  + Common Components of Message -> `@modules/message/components`
+    + Hooks of a specific component? -> `@modules/message/components/SomeThing/hooks`
+    + implementation of a specific component? -> `@modules/message/components/SomeThing/Something.tsx`
+  + Shared Hooks of Message -> `@modules/message/hooks`
+
+<br>
+<hr />
+
