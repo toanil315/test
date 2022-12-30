@@ -36,6 +36,12 @@ module.exports = {
       "react/no-unescaped-entities": "off",
       "react/no-unknown-property": "off",
       "@typescript-eslint/no-unsafe-assignment": "off",
-      "react/display-name": 'off'
+      "react/display-name": 'off',
+      "@typescript-eslint/consistent-type-assertions": [ 0,
+        {
+          "assertionStyle": "as" | "angle-bracket",
+          "objectLiteralTypeAssertions": "allow" | "allow-as-parameter"
+        }
+      ]
     }
 }
