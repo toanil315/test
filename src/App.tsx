@@ -29,7 +29,9 @@ function App() {
           onSelect={(v) => {
             setV(() => v);
           }}
-        />
+        >
+          {/* <input /> */}
+        </Select>
       </div>
     </div>
   );
