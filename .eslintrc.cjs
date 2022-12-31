@@ -42,6 +42,11 @@ module.exports = {
           "assertionStyle": "as" | "angle-bracket",
           "objectLiteralTypeAssertions": "allow" | "allow-as-parameter"
         }
-      ]
+      ],
+      "@typescript-eslint/no-redundant-type-constituents": "off",
+      "@typescript-eslint/naming-convention": "off",
+      "@typescript-eslint/no-floating-promises": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/unified-signatures": "off"
     }
 }
