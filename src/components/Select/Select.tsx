@@ -11,6 +11,9 @@ function reducer(prev: boolean, next?: boolean): boolean {
   return !prev;
 }
 
+/**
+ * This is the `Base Component`
+ */
 export default function Select({
   children,
   iconOnHide = <BsFillCaretDownFill />,
