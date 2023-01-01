@@ -133,7 +133,14 @@ export default function Select({
       <div className='select-body'>
         {shouldDropDown && (
           <div className='options-ctn'>
-            {children && <div className='options-ctn__header'>{children}</div>}
+            {children && (
+              <div
+                className='options-ctn__header'
+                onClick={withStopPropagation}
+              >
+                {children}
+              </div>
+            )}
             <div className='options-ctn__list'>
               {options?.map((option) => (
                 <HoverableWrap

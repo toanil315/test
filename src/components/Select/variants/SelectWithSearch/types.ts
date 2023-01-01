@@ -1,4 +1,4 @@
-import { type ReactNode } from 'react';
+import { type ReactNode, type ChangeEvent } from 'react';
 import { type OptionList, type SelectProps } from './../../types';
 export type SelectWithSearchProps = Omit<SelectProps, 'children' | 'options'> & {
   /**
@@ -23,7 +23,7 @@ export type SelectWithSearchProps = Omit<SelectProps, 'children' | 'options'> & 
    * @param v the next value
    * @returns void
    */
-  onChangeInputValue: (v: string) => void;
+  onChangeInputValue: (e: ChangeEvent<HTMLInputElement>) => void;
 
   /**
    * Loading status of the filtering
@@ -38,9 +38,13 @@ export type SelectWithSearchProps = Omit<SelectProps, 'children' | 'options'> & 
   /**
    * Did the query text pass your test?
    */
-  didPassedTest?: boolean;
+  didPassTest?: boolean;
   /**
    * If the query text failed the test, render this component
    */
   failedTestComponent?: ReactNode;
+  /**
+   * The placeholder of the search box
+   */
+  searchBoxPlaceholder?: string;
 };

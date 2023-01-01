@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 
 export type Option = {
   value: number | string;
-  name?: string;
+  name: string;
   render?: () => ReactNode;
   html?: string;
 };

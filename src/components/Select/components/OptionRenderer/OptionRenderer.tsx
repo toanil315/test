@@ -1,13 +1,16 @@
-import { type OptionRendererProps } from '@components/Select/types';
-import { memo } from 'react';
+import { type OptionRendererProps } from '../../types';
 import './OptionRenderer.scss';
 
-const OptionRenderer = ({ option }: OptionRendererProps) => (
-  <>
-    {option.name && <div className='truncate'>{option.name}</div>}
-    {option.render?.()}
-    {option.html && <div dangerouslySetInnerHTML={{ __html: option.html }}></div>}
-  </>
-);
+const OptionRenderer = ({ option }: OptionRendererProps) => {
+  if (option.render !== undefined) {
+    return option.render();
+  }
 
-export default memo(OptionRenderer);
+  if (option.html !== undefined) {
+    return <div dangerouslySetInnerHTML={{ __html: option.html }}></div>;
+  }
+
+  return <div className='truncate'>{option.name}</div>;
+};
+
+export default OptionRenderer;

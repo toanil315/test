@@ -30,15 +30,16 @@ const SelectWithSearch = ({
   onChangeInputValue,
   isLoading,
   loadingComponent = 'Searching...',
-  didPassedTest = true,
-  failedTestComponent,
+  didPassTest = true,
+  failedTestComponent = 'Invalid search text!',
   searchResult,
   notFound,
   notFoundComponent = 'Not found!',
+  searchBoxPlaceholder = 'Search something',
   ...props
 }: SelectWithSearchProps) => {
   const handleChangeInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    onChangeInputValue(e.target.value);
+    onChangeInputValue(e);
   }, []);
 
   return (
@@ -51,13 +52,26 @@ const SelectWithSearch = ({
           type='text'
           value={inputValue}
           onChange={handleChangeInput}
+          placeholder={searchBoxPlaceholder}
         />
-        {/* render loading component */}
-        {isLoading && loadingComponent}
-        {/* render failure component */}
-        {!didPassedTest && failedTestComponent}
-        {/* render whenever not found */}
-        {notFound && notFoundComponent}
+        {isLoading && (
+          <div className='search-ctn__body'>
+            {/* render loading component */}
+            {loadingComponent}
+          </div>
+        )}
+        {!didPassTest && (
+          <div className='search-ctn__body'>
+            {/* render failure component */}
+            {failedTestComponent}
+          </div>
+        )}
+        {notFound && (
+          <div className='search-ctn__body'>
+            {/* render whenever not found */}
+            {notFoundComponent}
+          </div>
+        )}
       </div>
     </Select>
   );
