@@ -19,6 +19,7 @@ import { SelectWithSearch } from '../SelectWithSearch';
 const SelectWithFilter = ({
   initialOptions,
   testSearchTextFunction,
+  caseSensitive = false,
   ...props
 }: SelectWithFilterProps) => {
   // #region For select with search
@@ -34,6 +35,14 @@ const SelectWithFilter = ({
 
   const handleChangeInput = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
+    if (value === '') {
+      setSearch({
+        text: value,
+        didPassTest: true,
+      });
+      return;
+    }
+
     const didPassTest = testSearchTextFunction(value);
     setSearch({
       text: value,
@@ -42,7 +51,11 @@ const SelectWithFilter = ({
   }, []);
 
   const filtering = useCallback((v: string) => {
-    return initialOptions.filter((option) => option.name?.toLowerCase().includes(v));
+    if (caseSensitive) {
+      return initialOptions.filter((option) => option.name?.includes(v));
+    }
+
+    return initialOptions.filter((option) => option.name?.toLowerCase().includes(v.toLowerCase()));
   }, []);
 
   useEffect(() => {

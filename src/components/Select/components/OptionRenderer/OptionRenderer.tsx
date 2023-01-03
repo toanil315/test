@@ -1,9 +1,9 @@
 import { type OptionRendererProps } from '../../types';
 import './OptionRenderer.scss';
 
-const OptionRenderer = ({ option }: OptionRendererProps) => {
+const OptionRenderer = ({ option }: OptionRendererProps): JSX.Element => {
   if (option.render !== undefined) {
-    return option.render();
+    return option.render() as JSX.Element;
   }
 
   if (option.html !== undefined) {

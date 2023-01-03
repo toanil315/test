@@ -105,7 +105,7 @@ function App() {
 
         {/* leaner and better the above one :) */}
         <div style={{ padding: `40px 0` }}>
-          <p>type at lease 3 characters - you can change in the testSearchTextFunction</p>
+          <p>type at lease 1 characters - you can change in the testSearchTextFunction</p>
           <SelectWithFilter
             initialOptions={mockData}
             value={swfV}

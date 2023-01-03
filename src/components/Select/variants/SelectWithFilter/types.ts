@@ -29,4 +29,9 @@ export type SelectWithFilterProps = Omit<SelectProps, 'children' | 'options'> & 
    * The placeholder of the search box
    */
   searchBoxPlaceholder?: string;
+
+  /**
+   * As its name :)
+   */
+  caseSensitive?: boolean;
 };

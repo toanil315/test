@@ -6,6 +6,7 @@ import { type NoZeroDelta, type Option, type OptionList } from '../types';
  * @param cb a callback
  */
 export const withStopPropagation = (e: React.MouseEvent<HTMLElement>, cb?: () => void) => {
+  console.log(e);
   e.stopPropagation();
   cb?.();
 };
