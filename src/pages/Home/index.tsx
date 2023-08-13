@@ -1,3 +1,4 @@
+import { Editor } from '@/components/Editor';
 import { DatePicker } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,10 +8,7 @@ const Home = () => {
 
   return (
     <div>
-      {t('helloWorld')}
-      <div>
-        <DatePicker />
-      </div>
+      <Editor />
     </div>
   );
 };

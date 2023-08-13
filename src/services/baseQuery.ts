@@ -17,6 +17,10 @@ export const baseQuery = fetchBaseQuery({
 
     return headers;
   },
+  responseHandler: (value) => {
+    value.headers;
+    return Promise.resolve(value);
+  },
 });
 
 export const baseQueryWithReAuth: BaseQueryFn<

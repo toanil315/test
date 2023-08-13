@@ -13,11 +13,13 @@
     "format": "npm run prettier:fix && npm run lint:fix"
   },
   "dependencies": {
+    "@lexical/react": "^0.12.0",
     "@loadable/component": "^5.15.3",
     "@reduxjs/toolkit": "^1.9.3",
     "antd": "^5.4.0",
     "formik": "^2.2.9",
     "i18next": "^22.4.14",
+    "lexical": "^0.12.0",
     "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
