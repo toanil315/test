@@ -39,7 +39,7 @@ function MyCustomAutoFocusPlugin() {
 }
 
 function onError(error: any) {
-  console.error(error);
+  // console.error(error);
 }
 
 function Editor() {
@@ -47,6 +47,7 @@ function Editor() {
     namespace: 'MyEditor',
     theme: {
       text: {
+        base: 'base',
         bold: 'font-bold',
         italic: 'italic',
         underline: 'underline',
@@ -63,26 +64,23 @@ function Editor() {
     setEditorState(JSON.stringify(editorStateJSON));
   }
 
-  console.log(editorState);
-
   useEffect(() => {
     setTimeout(() => {
       if (editorRef.current) {
         // editorRef.current.update(() => {
         //   const parser = new DOMParser();
         //   const dom = parser.parseFromString(
-        //     `<p dir="ltr"><span>asasasas asasasa</span></p><p dir="ltr"><span>ba phuong khung</span></p><p><br></p><p dir="ltr"><span>asasasasasasasas</span></p>`,
+        //     `<p dir="ltr"><span>asasasas asasasa</span></p><p dir="ltr"><span></span></p><p><br></p><p dir="ltr"><span>asasasasasasasas</span></p>`,
         //     'text/html',
         //   );
         //   const nodes = $generateNodesFromDOM(editorRef.current as any, dom);
         //   $getRoot().select();
         //   $insertNodes(nodes);
         // });
-
-        const newEditorState = editorRef.current?.parseEditorState(
-          `{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"asasasas asasasa","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"ba phuong khung","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"asasasasasasasas","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}`,
-        );
-        editorRef.current?.setEditorState(newEditorState);
+        // const newEditorState = editorRef.current?.parseEditorState(
+        //   `{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"asasasas asasasa","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"asasasasasasasas","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}`,
+        // );
+        // editorRef.current?.setEditorState(newEditorState);
       }
     }, 5000);
   }, []);
@@ -108,7 +106,6 @@ function Editor() {
           />
           <OnChangePlugin onChange={onChange} />
           <HistoryPlugin />
-          <MyCustomAutoFocusPlugin />
           <EditorRefPlugin editorRef={editorRef} />
         </LexicalComposer>
       </StyledEditor>

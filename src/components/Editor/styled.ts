@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 export const StyledEditor = styled.div`
-  padding: 10px;
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  margin: 20px;
+  margin: 44px;
 
   .content-editable {
     width: 100%;
     min-height: 300px;
+    padding: 10px;
     outline: none;
   }
   .placeholder {
@@ -16,6 +16,11 @@ export const StyledEditor = styled.div`
     top: 10px;
     left: 10px;
     pointer-events: none;
+  }
+
+  .base {
+    font-size: 16px;
+    user-select: none;
   }
 
   .font-bold {
