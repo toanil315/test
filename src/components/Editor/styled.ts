@@ -38,4 +38,11 @@ export const StyledEditor = styled.div`
   .strikethrough {
     text-decoration: line-through;
   }
+
+  .banner {
+    background-color: rgba(138, 43, 226, 0.3);
+    border-left: 3px solid rgba(138, 43, 226, 0.8);
+    margin: 4px;
+    padding: 4px;
+  }
 `;

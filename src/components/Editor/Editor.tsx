@@ -11,6 +11,8 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { StyledEditor } from './styled';
 import Toolbar from './Toolbar';
+import BannerPlugin from './plugins/Banner.plugin';
+import { BannerNode } from './nodes/Banner.node';
 
 const theme = {
   // Theme styling goes here
@@ -53,8 +55,10 @@ function Editor() {
         underline: 'underline',
         strikethrough: 'line-through',
       },
+      banner: 'banner',
     },
     onError,
+    nodes: [BannerNode],
   };
 
   const [editorState, setEditorState] = useState<string>();
@@ -107,6 +111,7 @@ function Editor() {
           <OnChangePlugin onChange={onChange} />
           <HistoryPlugin />
           <EditorRefPlugin editorRef={editorRef} />
+          <BannerPlugin />
         </LexicalComposer>
       </StyledEditor>
       <button onClick={handleExportDom}>EXPORT DOM</button>

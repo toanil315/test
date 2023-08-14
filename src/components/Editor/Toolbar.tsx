@@ -9,6 +9,7 @@ import {
   faStrikethrough,
   faUnderline,
   faUndo,
+  faQuoteLeft,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -27,6 +28,7 @@ import {
   UNDO_COMMAND,
 } from 'lexical';
 import { ChangeEvent, useCallback, useEffect, useState, useRef } from 'react';
+import { INSERT_BANNER_NODE_COMMAND } from './nodes/Banner.node';
 
 const Toolbar = () => {
   const [editor] = useLexicalComposerContext();
@@ -51,8 +53,6 @@ const Toolbar = () => {
       setActiveSelectionRange(selection);
     }
   }, []);
-
-  console.log(activeSelectionRange?.anchor);
 
   const handleFontSizeChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newFontSize = Number(e.target.value ?? 16);
@@ -228,7 +228,7 @@ const Toolbar = () => {
         className={`
           px-2 bg-transparent hover:bg-gray-200 transition-colors duration-100 ease-in`}
         onClick={() => {
-          editor.dispatchCommand(UNDO_COMMAND);
+          editor.dispatchCommand(UNDO_COMMAND, undefined);
         }}
       >
         <FontAwesomeIcon
@@ -240,11 +240,24 @@ const Toolbar = () => {
         className={`
           px-2 bg-transparent hover:bg-gray-200 transition-colors duration-100 ease-in`}
         onClick={() => {
-          editor.dispatchCommand(REDO_COMMAND);
+          editor.dispatchCommand(REDO_COMMAND, undefined);
         }}
       >
         <FontAwesomeIcon
           icon={faRedo}
+          className=' w-3.5 h-3.5'
+        />
+      </button>
+      <span className='w-[1px] bg-gray-600 block h-full'></span>
+      <button
+        className={`
+          px-2 bg-transparent hover:bg-gray-200 transition-colors duration-100 ease-in`}
+        onClick={() => {
+          editor.dispatchCommand(INSERT_BANNER_NODE_COMMAND, undefined);
+        }}
+      >
+        <FontAwesomeIcon
+          icon={faQuoteLeft}
           className=' w-3.5 h-3.5'
         />
       </button>
