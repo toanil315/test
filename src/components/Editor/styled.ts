@@ -40,9 +40,26 @@ export const StyledEditor = styled.div`
   }
 
   .banner {
-    background-color: rgba(138, 43, 226, 0.3);
-    border-left: 3px solid rgba(138, 43, 226, 0.8);
+    background-color: rgba(0, 0, 0, 0.05);
+    border-left: 3px solid rgba(0, 0, 0, 0.5);
     margin: 4px;
     padding: 4px;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+
+  .image {
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .image > img {
+    width: 100%;
+    object-fit: cover;
   }
 `;

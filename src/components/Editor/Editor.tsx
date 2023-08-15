@@ -13,6 +13,10 @@ import { StyledEditor } from './styled';
 import Toolbar from './Toolbar';
 import BannerPlugin from './plugins/Banner.plugin';
 import { BannerNode } from './nodes/Banner.node';
+import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import { ListItemNode, ListNode } from '@lexical/list';
+import ImagePlugin from './plugins/Image.plugin';
+import { ImageNode } from './nodes/Image.node';
 
 const theme = {
   // Theme styling goes here
@@ -56,9 +60,10 @@ function Editor() {
         strikethrough: 'line-through',
       },
       banner: 'banner',
+      image: 'image',
     },
     onError,
-    nodes: [BannerNode],
+    nodes: [BannerNode, ListItemNode, ListNode, ImageNode],
   };
 
   const [editorState, setEditorState] = useState<string>();
@@ -112,6 +117,8 @@ function Editor() {
           <HistoryPlugin />
           <EditorRefPlugin editorRef={editorRef} />
           <BannerPlugin />
+          <ListPlugin />
+          <ImagePlugin />
         </LexicalComposer>
       </StyledEditor>
       <button onClick={handleExportDom}>EXPORT DOM</button>

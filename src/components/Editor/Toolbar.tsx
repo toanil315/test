@@ -10,6 +10,7 @@ import {
   faUnderline,
   faUndo,
   faQuoteLeft,
+  faListDots,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -27,8 +28,10 @@ import {
   RangeSelection,
   UNDO_COMMAND,
 } from 'lexical';
+import { INSERT_UNORDERED_LIST_COMMAND } from '@lexical/list';
 import { ChangeEvent, useCallback, useEffect, useState, useRef } from 'react';
 import { INSERT_BANNER_NODE_COMMAND } from './nodes/Banner.node';
+import ImageToolbar from './components/ImageToolbar';
 
 const Toolbar = () => {
   const [editor] = useLexicalComposerContext();
@@ -261,6 +264,21 @@ const Toolbar = () => {
           className=' w-3.5 h-3.5'
         />
       </button>
+      <button
+        className={`
+          px-2 bg-transparent hover:bg-gray-200 transition-colors duration-100 ease-in`}
+        onClick={() => {
+          console.log(INSERT_UNORDERED_LIST_COMMAND);
+          editor.dispatchCommand(INSERT_UNORDERED_LIST_COMMAND, undefined);
+        }}
+      >
+        <FontAwesomeIcon
+          icon={faListDots}
+          className=' w-3.5 h-3.5'
+        />
+      </button>
+      <span className='w-[1px] bg-gray-600 block h-full'></span>
+      <ImageToolbar />
     </div>
   );
 };
