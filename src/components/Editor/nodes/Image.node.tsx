@@ -6,12 +6,12 @@ import type {
   LexicalEditor,
   LexicalNode,
   NodeKey,
+  RangeSelection,
   SerializedLexicalNode,
   Spread,
 } from 'lexical';
-import { createCommand, createEditor, DecoratorNode } from 'lexical';
-import Image from '../components/Image';
-import { useEffect } from 'react';
+import { $createParagraphNode, createCommand, createEditor, DecoratorNode } from 'lexical';
+import Image from '../sub-components/Image';
 
 export interface ImagePayload {
   altText: string;
@@ -60,11 +60,17 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
     return node;
   }
 
-  exportDOM(): DOMExportOutput {
-    const element = document.createElement('img');
-    element.setAttribute('src', this.__src);
-    element.setAttribute('alt', this.__altText);
-    return { element };
+  exportDOM(editor: LexicalEditor): DOMExportOutput {
+    const divElement = document.createElement('div');
+    const className = editor._config.theme.image;
+    if (className) {
+      divElement.className = className;
+    }
+    const imageElement = document.createElement('img');
+    imageElement.setAttribute('src', this.__src);
+    imageElement.setAttribute('alt', this.__altText);
+    divElement.appendChild(imageElement);
+    return { element: divElement };
   }
 
   static importDOM(): DOMConversionMap | null {
@@ -132,6 +138,17 @@ export class ImageNode extends DecoratorNode<JSX.Element> {
         altText={this.__altText}
       />
     );
+  }
+
+  insertNewAfter(
+    selection: RangeSelection,
+    restoreSelection?: boolean | undefined,
+  ): LexicalNode | null {
+    const newBlock = $createParagraphNode();
+    const direction = this.getDirection();
+    newBlock.setDirection('rtl');
+    this.insertAfter(newBlock, restoreSelection);
+    return newBlock;
   }
 }
 

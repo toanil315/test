@@ -31,7 +31,7 @@ import {
 import { INSERT_UNORDERED_LIST_COMMAND } from '@lexical/list';
 import { ChangeEvent, useCallback, useEffect, useState, useRef } from 'react';
 import { INSERT_BANNER_NODE_COMMAND } from './nodes/Banner.node';
-import ImageToolbar from './components/ImageToolbar';
+import ImageToolbar from './sub-components/ImageToolbar';
 
 const Toolbar = () => {
   const [editor] = useLexicalComposerContext();
@@ -109,7 +109,7 @@ const Toolbar = () => {
   }, [fontSize]);
 
   return (
-    <div className='absolute z-20  -top-10 min-w-52 h-10 py-2 mb-4 space-x-2 flex items-center '>
+    <div className='absolute z-20 -top-10 min-w-52 h-10 py-2 mb-4 space-x-2 flex items-center '>
       <div className='font-size-area w-14 border border-gray-200 rounded-lg px-2 flex items-center justify-between'>
         <input
           value={fontSize}
