@@ -32,7 +32,8 @@
     "sass": "^1.57.1",
     "styled-components": "^5.3.9",
     "tailwindcss": "^3.3.3",
-    "yup": "^1.0.2"
+    "yup": "^1.0.2",
+    "zustand": "^4.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.7",
