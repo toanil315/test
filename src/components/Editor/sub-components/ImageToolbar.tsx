@@ -18,7 +18,7 @@ const ImageToolbar = () => {
               resolve('https://imgv3.fotor.com/images/blog-richtext-image/part-blurry-image.jpg');
             }, 3000);
           }),
-          alt: '',
+          altText: 'editor image',
         });
       });
       fileReader.readAsDataURL(file);

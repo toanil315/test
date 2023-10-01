@@ -36,7 +36,7 @@ export class BannerNode extends ElementNode {
   ): LexicalNode | null {
     const newBlock = $createParagraphNode();
     const direction = this.getDirection();
-    newBlock.setDirection('rtl');
+    newBlock.setDirection('ltr');
     this.insertAfter(newBlock, restoreSelection);
     return newBlock;
   }

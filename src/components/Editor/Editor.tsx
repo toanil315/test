@@ -1,9 +1,8 @@
-import { $getRoot, $getSelection, EditorState, LexicalEditor, $insertNodes } from 'lexical';
+import { EditorState, LexicalEditor } from 'lexical';
 import { useEffect, useRef, useState } from 'react';
-
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { EditorRefPlugin } from '@lexical/react/LexicalEditorRefPlugin';
-import { $generateHtmlFromNodes, $generateNodesFromDOM } from '@lexical/html';
+import { $generateHtmlFromNodes } from '@lexical/html';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
@@ -76,16 +75,18 @@ function Editor() {
   useEffect(() => {
     setTimeout(() => {
       if (editorRef.current) {
+        // // insert by html string
         // editorRef.current.update(() => {
         //   const parser = new DOMParser();
         //   const dom = parser.parseFromString(
-        //     `<p dir="ltr"><span>asasasas asasasa</span></p><p dir="ltr"><span></span></p><p><br></p><p dir="ltr"><span>asasasasasasasas</span></p>`,
+        //     `<p><div class="image"><img src="https://imgv3.fotor.com/images/blog-richtext-image/part-blurry-image.jpg" alt="editor image"></div></p>`,
         //     'text/html',
         //   );
         //   const nodes = $generateNodesFromDOM(editorRef.current as any, dom);
         //   $getRoot().select();
         //   $insertNodes(nodes);
         // });
+        // // insert editor state
         // const newEditorState = editorRef.current?.parseEditorState(
         //   `{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"asasasas asasasa","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1},{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1},{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"asasasasasasasas","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}`,
         // );

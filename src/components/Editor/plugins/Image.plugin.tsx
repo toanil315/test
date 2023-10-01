@@ -6,7 +6,12 @@ import {
   ImageNode,
   ImagePayload,
 } from '../nodes/Image.node';
-import { $insertNodes, COMMAND_PRIORITY_EDITOR } from 'lexical';
+import {
+  $createParagraphNode,
+  $createTextNode,
+  $insertNodes,
+  COMMAND_PRIORITY_EDITOR,
+} from 'lexical';
 
 const ImagePlugin = () => {
   const [editor] = useLexicalComposerContext();
@@ -17,7 +22,8 @@ const ImagePlugin = () => {
     INSERT_IMAGE_NODE_COMMAND,
     (payload: ImagePayload) => {
       const imageNode = $createImageNode(payload);
-      $insertNodes([imageNode]);
+      const textNode = $createTextNode(' ');
+      $insertNodes([textNode, imageNode]);
       return true;
     },
     COMMAND_PRIORITY_EDITOR,
