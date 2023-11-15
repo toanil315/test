@@ -325,6 +325,7 @@ const VideoItem = ({ video, activeId }: { video: VideoItem; activeId: string }) 
         autoPlay
         src={activeId === video.id ? video.link : ''}
         loop
+        controls
       ></video>
     </StyledVideoItem>
   );

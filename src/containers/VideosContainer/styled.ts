@@ -8,18 +8,20 @@ export const StyledVideoContainer = styled.div`
 `;
 
 export const StyledVideoItem = styled.div`
-  width: 1040px;
-  border-radius: 20px;
-  background-color: #1b1b1b;
-
   h2 {
-    margin-bottom: 0;
-    opacity: 0;
+    color: white;
+    text-decoration: none;
+
+    font-size: 24px;
+    margin-bottom: 10px;
+
     text-transform: capitalize;
   }
 
   video {
-    width: 100%;
+    width: 1040px;
+    border-radius: 20px;
+    background-color: #1b1b1b;
     border-radius: 20px;
   }
 

@@ -6,7 +6,6 @@ import { initialCardsPosition } from './data';
 import useBoardStore from './components/boardStore';
 import { moveCardToColumn } from './components/util';
 import { useBroadCastChannel, usePersistentState, useSharedWorker } from '@/hooks';
-import Worker from '@/workers/checkAnotherTabIsOpening';
 import { PersistentStateKey } from '@/constants';
 
 const columnTitles: { [key in Columns]: string } = {
