@@ -40,3 +40,15 @@
   font-size: 0.9rem;
   color: #555;
 }
+
+h2 {
+  scroll-margin-top: 40px;
+}
+
+/* Safari-only */
+@supports (-webkit-hyphens: none) {
+  h2 {
+    padding-top: 40px;
+    margin-top: -40px;
+  }
+}

@@ -6,6 +6,9 @@ import { NonAuthRoute } from '@/hocs';
 import { NotFound } from '@/pages';
 
 const Home = loadable(() => import('@/pages/Home'));
+const NodeBaseEditorPage = loadable(() => import('@/pages/Board'));
+const SurveyListPage = loadable(() => import('@/pages/SurveyList'));
+const CreateSurveyPage = loadable(() => import('@/pages/CreateSurvey'));
 
 const routeList: RouteObject[] = [
   {
@@ -16,6 +19,19 @@ const routeList: RouteObject[] = [
       {
         path: ROUTES.HOME,
         element: <NonAuthRoute element={Home} />,
+        children: [],
+      },
+      {
+        path: ROUTES.NODE_BASE_EDITOR,
+        element: <NonAuthRoute element={NodeBaseEditorPage} />,
+      },
+      {
+        path: ROUTES.SURVEYS,
+        element: <NonAuthRoute element={SurveyListPage} />,
+      },
+      {
+        path: ROUTES.CREATE_SURVEY,
+        element: <NonAuthRoute element={CreateSurveyPage} />,
       },
     ],
   },

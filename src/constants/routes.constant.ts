@@ -10,4 +10,12 @@ export const ROUTES = {
 
   // user routes
   HOME: `${prefixPath}`,
+
+  NODE_BASE_EDITOR: `${prefixPath}/node-base-editor`,
+
+  SURVEYS: `${prefixPath}/surveys`,
+
+  get CREATE_SURVEY() {
+    return `${this.SURVEYS}/create`;
+  },
 };
