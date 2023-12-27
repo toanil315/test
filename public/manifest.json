@@ -1,0 +1,26 @@
+{
+  "name": "Leave Trigger for Auto CI/CO tool",
+  "description": "This extension is used for triggering webhook to my custom server for auto CI/CO when submit leaves on HCM.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open the popup"
+  },
+  "icons": {
+    "16": "vite.svg",
+    "48": "vite.svg",
+    "128": "vite.svg"
+  },
+  "permissions": ["activeTab", "webRequest", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "host_permissions": ["*://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content-script.js"]
+    }
+  ]
+}
